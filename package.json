@@ -1,0 +1,25 @@
+{
+  "name": "online-shop",
+  "version": "1.0.0",
+  "description": "Project X",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fidesone/Online-shop.git"
+  },
+  "author": "Fides",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fidesone/Online-shop/issues"
+  },
+  "homepage": "https://github.com/Fidesone/Online-shop#readme",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "express": "^4.18.2",
+    "openai": "^3.2.1"
+  }
+}
