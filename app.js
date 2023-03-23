@@ -1,25 +1,31 @@
 const express = require('express');
-const { Configuration, OpenAIApi } = require('openai');
+const { getApiResponse } = require('./openapi_conn');
+
+//const { Configuration, OpenAIApi } = require('openai');
 
 const app = express();
 const port = 3000;
 
-const configuration = new Configuration({
-  apiKey: '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',
+//const configuration = new Configuration({
+//  apiKey: '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',
+//});
+
+//const openai = new OpenAIApi(configuration);
+
+
+// Configurar EJS como motor de plantillas
+app.set('view engine', 'ejs');
+
+// Ruta para la página de inicio
+app.get('/', (req, res) => {
+  res.render('index');
 });
 
-const openai = new OpenAIApi(configuration);
-
-app.get('/', async (req, res) => {
-  const completion = await openai.createCompletion({
-    model: 'text-davinci-003',
-    prompt: 'HAZME UN TEXTO DE 500 PALABRAS SOBRE LA IA',
+app.get('/api', async (req, res) => {
+    const result = await getApiResponse();
+    res.send(result);
   });
   
-  const result = completion.data.choices[0].text;
-  
-  res.send(result);
-});
 
 app.listen(port, () => {
   console.log(`Servidor web en ejecución en http://localhost:${3000}`);
