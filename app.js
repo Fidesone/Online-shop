@@ -1,17 +1,7 @@
 const express = require('express');
 const { getApiResponse } = require('./openapi_conn');
-
-//const { Configuration, OpenAIApi } = require('openai');
-
 const app = express();
 const port = 3000;
-
-//const configuration = new Configuration({
-//  apiKey: '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',
-//});
-
-//const openai = new OpenAIApi(configuration);
-
 
 // Configurar EJS como motor de plantillas
 app.set('view engine', 'ejs');
