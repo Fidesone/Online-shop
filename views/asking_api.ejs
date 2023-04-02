@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Magic Online-Shop</title>
+</head>
+<body>
+  <header>
+    <h1>Pregunta a la apis</h1>
+  </header>
+  
+  <main>
+    <section>
+        <form id ='ask_form'>
+            <label for="ask">Pregunta a la API:</label>
+            <input type="text" id="ask" name="ask">
+            <button type="submit">Enviar</button>
+        </form>
+        <div id="respuesta_api"></div>
+        <script>
+            const formulario = document.getElementById('ask_form');
+            const respuestaDiv = document.getElementById('respuesta_api');
+          
+            formulario.addEventListener('submit', async function(evento) {
+  evento.preventDefault();
+  
+  const pregunta = document.getElementById('ask').value;
+  
+  const respuesta = await fetch('/api?pregunta=' + pregunta)
+                          .then(respuesta => respuesta.text())
+                          .catch(error => console.error(error));
+  
+  respuestaDiv.textContent = respuesta;
+});
+
+</script> 
+    </section>
+    
+    <section>
+      <h2>Productos destacados</h2>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 Mi sitio web. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

@@ -1,15 +1,15 @@
 const { Configuration, OpenAIApi } = require('openai');
 
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: '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',
 });
 
 const openai = new OpenAIApi(configuration);
 
-async function getApiResponse() {
+async function getApiResponse(pregunta) {
   const completion = await openai.createCompletion({
     model: 'text-davinci-003',
-    prompt: '¿Hablame del atletico de Madrid?',
+    prompt: pregunta,
     max_tokens: 700,
   });
   
